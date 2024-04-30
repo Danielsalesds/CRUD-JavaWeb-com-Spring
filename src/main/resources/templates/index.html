@@ -2,13 +2,43 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css"  th:href="@{/css/tableStyle.css}"/>
+
     <title>Filmes</title>
 </head>
 <body>
-<table>
-  <tr th:each="filme : ${filmes}" >
-    <td th:text="${filme.resumo}"></td>
-  </tr>
-</table>
+  <div id="topo">
+    <h1>GERENCIADOR DE FILMES</h1>
+  </div>
+  <a href="/update"><button>Atualizar</button></a>
+  <a href="/options"><button>Cadastrar</button></a>
+  <table>
+      <thead>
+        <tr>
+            <th>ID</th>
+            <th>Ano de Lançamento</th>
+            <th>Genero</th>
+            <th>Nota</th>
+            <th>Resumo</th>
+            <th>Titulo</th>
+            <th>Editar</th>
+        </tr>
+      </thead>
+      <tbody th:each="filme : ${filmes}" >
+        <tr>
+          <td th:text="${filme.id}"></td>
+          <td th:text="${filme.anoLancamento}"></td>
+          <td th:text="${filme.genero}"></td>
+          <td th:text="${filme.nota}"></td>
+          <td th:text="${filme.resumo}"></td>
+          <td th:text="${filme.titulo}"></td>
+          <td>
+            <a th:href="@{'/alterar?id=' + ${filme.id}}">Alterar</a>
+            <a th:href="@{'/excluir?id=' + ${filme.id}}">Excluir</a>
+          </td>
+        </tr>
+      </tbody>
+  </table>
+
 </body>
 </html>

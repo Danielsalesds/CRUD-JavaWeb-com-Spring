@@ -1,0 +1,36 @@
+table {
+    border-collapse: collapse;
+    width: 80%;
+  }
+  
+  table, th, td {
+    border: 1px solid black;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  thead tr {
+    border-bottom: 2px solid black; /* Adiciona uma linha no final do cabeçalho */
+  }
+  
+  tbody tr:last-child {
+    border-bottom: 2px solid black; /* Adiciona uma linha no final do corpo */
+  }
+
+
+#topo{
+    border: 1px solid black; /* Define uma borda sólida de 1px de largura e preta */
+    width: 80%;
+    margin-bottom: 50px;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+  

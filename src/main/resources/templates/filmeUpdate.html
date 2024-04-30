@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atualizar/Editar/Excluir filmes</title>
+</head>
+<body>
+    <h1>GERENCIAMENTO DE FILMES</h1>
+    <h2>Cadastro de Filme</h2>
+    <!--Ester form só sera exibido se existir um objeto no model-->
+    <form action="/atualizar" method="post" th:if="${filme != null}">
+        <label for="id">Id:</label><br>
+        <input type="text" id="id" name="id" th:value="${filme.id}"  required ><br>
+
+        <label for="titulo">Título:</label><br>
+        <input type="text" id="titulo" name="titulo" th:value="${filme.titulo}"  required ><br>
+        
+        <label for="anoLancamento">Ano de Lançamento:</label><br>
+        <input type="number" id="anoLancamento" name="anoLancamento" th:value="${filme.anoLancamento}" required><br>
+        
+        <label for="genero">Gênero:</label><br>
+        <input type="text" id="genero" name="genero" th:value="${filme.genero}" required><br>
+        
+        <label for="nota">Nota:</label><br>
+        <input type="number" id="nota" name="nota" min="0" max="10" step="0.1" th:value="${filme.nota}" required><br>
+        
+        <label for="resumo">Resumo:</label><br>
+        <textarea id="resumo" name="resumo" rows="4" cols="50" th:text="${filme.resumo}" required></textarea><br>
+        
+        <button type="submit">Alterar</button>
+        <a href="/update"><button type="button">Voltar</button></a>
+    </form>
+    <!--Ester forme só será exibido se não existir objeto no model da pagina-->
+    <form action="/cadastrar" method="post" th:if="${filme == null}">
+        <label for="titulo">Título:</label><br>
+        <input type="text" id="titulo" name="titulo" required ><br>
+        
+        <label for="anoLancamento">Ano de Lançamento:</label><br>
+        <input type="number" id="anoLancamento" name="anoLancamento" required><br>
+        
+        <label for="genero">Gênero:</label><br>
+        <input type="text" id="genero" name="genero" required><br>
+        
+        <label for="nota">Nota:</label><br>
+        <input type="number" id="nota" name="nota" min="0" max="10" step="0.1"  required><br>
+        
+        <label for="resumo">Resumo:</label><br>
+        <textarea id="resumo" name="resumo" rows="4" cols="50"  required></textarea><br>
+        
+        <button type="submit">Cadastrar</button>
+        <a href="/update"><button type="button">Voltar</button></a>
+    </form>
+    </div>
+</body>
+</html>
